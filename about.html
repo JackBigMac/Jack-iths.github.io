@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jack Revenue — CV & About</title>
+  <meta name="description" content="CV and background of Jack Revenue — Junior Azure/.NET Developer based in Gothenburg, Sweden." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Variables (identical to index.html) ─────────────────── */
+    :root {
+      --bg:        #F0EEE9;
+      --bg2:       #E8E5DF;
+      --bg3:       #DDD9D2;
+      --border:    rgba(0,0,0,0.09);
+      --text:      #1C1A17;
+      --muted:     #7A766F;
+      --accent:    #2C4A8A;
+      --green:     #2E6B4E;
+      --font:      'Inter', sans-serif;
+      --r:         2px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Noise ───────────────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: .25;
+    }
+
+    /* ── Nav (identical to index.html) ──────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 56px;
+      background: rgba(240,238,233,.92);
+      backdrop-filter: blur(16px) saturate(140%);
+      border-bottom: 1px solid var(--border);
+      animation: navIn .5s cubic-bezier(0.16,1,0.3,1) both;
+    }
+    @keyframes navIn { from { opacity:0; transform: translateY(-8px); } }
+
+    .nav-logo {
+      font-family: var(--font);
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: -.03em;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: 0 18px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      color: var(--muted);
+      border-right: 1px solid var(--border);
+      transition: color .16s, background .16s;
+    }
+    .nav-links a:first-child { border-left: 1px solid var(--border); }
+    .nav-links a:hover { color: var(--text); background: var(--bg2); }
+    .nav-links a.active { color: var(--text); background: var(--bg2); }
+    .nav-cta {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border: 1.5px solid var(--text);
+      color: var(--text);
+      background: transparent;
+      border-radius: 2px;
+      transition: background .16s, color .16s;
+    }
+    .nav-cta:hover { background: var(--text); color: var(--bg); }
+
+    /* ── Layout ──────────────────────────────────────────────── */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 40px 80px;
+    }
+
+    /* ── Page header ─────────────────────────────────────────── */
+    .page-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 64px;
+      animation: fadeUp .6s .1s cubic-bezier(0.16,1,0.3,1) both;
+    }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } }
+
+    .page-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .page-title {
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 800;
+      letter-spacing: -.04em;
+      line-height: .95;
+      color: var(--text);
+    }
+    .page-title span { color: var(--muted); font-weight: 300; }
+
+    .header-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-end;
+    }
+    .hc-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--muted);
+      transition: color .16s;
+    }
+    .hc-item:hover { color: var(--text); }
+    .hc-item svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* ── Two-column body ─────────────────────────────────────── */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 0 64px;
+      align-items: start;
+    }
+
+    /* ── Sidebar ─────────────────────────────────────────────── */
+    .sidebar {
+      position: sticky;
+      top: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .sb-section { display: flex; flex-direction: column; gap: 12px; }
+
+    .sb-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Skills */
+    .skill-list { display: flex; flex-direction: column; gap: 8px; }
+    .skill-row { display: flex; flex-direction: column; gap: 3px; }
+    .skill-meta { display: flex; justify-content: space-between; font-size: 12px; }
+    .skill-name { font-weight: 500; }
+    .skill-pct { color: var(--muted); }
+    .skill-track { height: 2px; background: var(--bg3); border-radius: 1px; overflow: hidden; }
+    .skill-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 0;
+      transition: width 1.1s cubic-bezier(0.16,1,0.3,1);
+    }
+    .skill-fill.animated { width: var(--w); }
+
+    /* Tech pills */
+    .pill-wrap { display: flex; flex-wrap: wrap; gap: 5px; }
+    .pill {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 8px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--muted);
+      background: var(--bg2);
+    }
+
+    /* Languages */
+    .lang-list { display: flex; flex-direction: column; gap: 8px; }
+    .lang-item { display: flex; justify-content: space-between; font-size: 13px; }
+    .lang-name { font-weight: 600; }
+    .lang-level { color: var(--muted); font-size: 12px; }
+
+    /* Download */
+    .dl-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1.5px solid var(--text);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background .16s, color .16s;
+    }
+    .dl-btn:hover { background: var(--text); color: var(--bg); }
+    .dl-btn svg { width: 14px; height: 14px; }
+
+    /* ── Main content ─────────────────────────────────────────── */
+    .main-content { display: flex; flex-direction: column; gap: 56px; }
+
+    /* Section */
+    .cv-section {}
+    .cv-section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Summary */
+    .summary-text {
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--muted);
+    }
+    .summary-text strong { color: var(--text); font-weight: 600; }
+
+    /* Experience */
+    .exp-list { display: flex; flex-direction: column; gap: 36px; }
+    .exp-item {}
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 4px;
+    }
+    .exp-company {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+    .exp-period {
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 3px;
+      font-weight: 500;
+    }
+    .exp-role {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .exp-location {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .exp-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .exp-points { display: flex; flex-direction: column; gap: 7px; padding-left: 0; list-style: none; }
+    .exp-points li {
+      font-size: 14px;
+      color: var(--muted);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.7;
+    }
+    .exp-points li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--bg3);
+      font-size: 13px;
+    }
+    .exp-points li strong { color: var(--text); font-weight: 600; }
+
+    /* Education */
+    .edu-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px 24px;
+    }
+    .edu-school { font-size: 17px; font-weight: 700; letter-spacing: -.02em; }
+    .edu-period { font-size: 12px; color: var(--muted); font-weight: 500; padding-top: 4px; white-space: nowrap; }
+    .edu-degree { font-size: 14px; color: var(--muted); margin-top: 4px; grid-column: 1; }
+    .edu-bullets { margin-top: 12px; grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px; list-style: none; }
+    .edu-bullets li {
+      font-size: 14px;
+      color: var(--muted);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.7;
+    }
+    .edu-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--bg3); font-size: 13px; }
+
+    /* Certs */
+    .cert-grid { display: flex; flex-direction: column; gap: 10px; }
+    .cert-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      transition: border-color .16s;
+    }
+    .cert-row:hover { border-color: rgba(44,74,138,.25); }
+    .cert-icon-wrap {
+      width: 32px; height: 32px;
+      background: var(--bg3);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+    .cert-name { font-size: 13px; font-weight: 600; }
+    .cert-issuer { font-size: 12px; color: var(--muted); margin-top: 1px; }
+    .cert-badge {
+      margin-left: auto;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 2px;
+      background: rgba(46,107,78,.1);
+      color: var(--green);
+      border: 1px solid rgba(46,107,78,.2);
+      white-space: nowrap;
+    }
+
+    /* ── Animations ──────────────────────────────────────────── */
+    .reveal { opacity: 1; transform: translateY(0); transition: opacity .6s cubic-bezier(0.16,1,0.3,1), transform .6s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.hidden { opacity: 0; transform: translateY(22px); }
+    .reveal-delay-1 { transition-delay: .07s; }
+    .reveal-delay-2 { transition-delay: .14s; }
+    .reveal-delay-3 { transition-delay: .21s; }
+
+    /* ── Footer ──────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-logo { font-weight: 800; font-size: 14px; letter-spacing: -.03em; display: flex; align-items: center; gap: 8px; }
+    .footer-logo::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); display: block; }
+    .footer-copy { font-size: 12px; color: var(--muted); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 12px; color: var(--muted); transition: color .16s; }
+    .footer-links a:hover { color: var(--text); }
+
+    /* ── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .cv-body { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .page-header { grid-template-columns: 1fr; }
+      .header-contact { align-items: flex-start; }
+    }
+    @media (max-width: 600px) {
+      .page-wrap { padding: 88px 20px 60px; }
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ─────────────────────────────────────────────────── -->
+  <nav>
+    <a href="index.html" class="nav-logo">Jack Revenue</a>
+    <div class="nav-links">
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="about.html" class="active">About</a>
+    </div>
+    <a href="index.html#contact" class="nav-cta">Contact</a>
+  </nav>
+
+  <!-- ── MAIN ─────────────────────────────────────────────────── -->
+  <main>
+  <div class="page-wrap">
+
+    <!-- Page header -->
+    <div class="page-header">
+      <div>
+        <p class="page-eyebrow">// curriculum vitae</p>
+        <h1 class="page-title">Jack Revenue<br/><span>Developer &amp; background</span></h1>
+      </div>
+      <div class="header-contact">
+        <a href="mailto:revenue@live.se" class="hc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          revenue@live.se
+        </a>
+        <a href="https://linkedin.com/in/jackrevenue" target="_blank" rel="noopener" class="hc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          linkedin.com/in/jackrevenue
+        </a>
+        <a href="https://github.com/Jack-iths" target="_blank" rel="noopener" class="hc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          github.com/Jack-iths
+        </a>
+        <span class="hc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Gothenburg, Sweden
+        </span>
+      </div>
+    </div>
+
+    <!-- Two-column body -->
+    <div class="cv-body">
+
+      <!-- ── SIDEBAR ──────────────────────────────────────────── -->
+      <aside class="sidebar">
+
+        <!-- Core skills -->
+        <div class="sb-section reveal">
+          <p class="sb-label">Core Skills</p>
+          <div class="skill-list">
+            <div class="skill-row">
+              <div class="skill-meta"><span class="skill-name">C# / .NET</span><span class="skill-pct">85%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--w:85%"></div></div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-meta"><span class="skill-name">ASP.NET Core</span><span class="skill-pct">80%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--w:80%"></div></div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-meta"><span class="skill-name">SQL / SQL Server</span><span class="skill-pct">80%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--w:80%"></div></div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-meta"><span class="skill-name">Microsoft Azure</span><span class="skill-pct">72%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--w:72%"></div></div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-meta"><span class="skill-name">HTML / CSS / JS</span><span class="skill-pct">74%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--w:74%"></div></div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-meta"><span class="skill-name">Git / GitHub</span><span class="skill-pct">70%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--w:70%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="sb-section reveal reveal-delay-1">
+          <p class="sb-label">Tools & Platforms</p>
+          <div class="pill-wrap">
+            <span class="pill">Visual Studio</span>
+            <span class="pill">VS Code</span>
+            <span class="pill">Azure Portal</span>
+            <span class="pill">GitHub</span>
+            <span class="pill">Microsoft 365</span>
+            <span class="pill">Entity Framework</span>
+            <span class="pill">Docker</span>
+            <span class="pill">ITSM</span>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="sb-section reveal reveal-delay-2">
+          <p class="sb-label">Languages</p>
+          <div class="lang-list">
+            <div class="lang-item">
+              <span class="lang-name">Swedish</span>
+              <span class="lang-level">Native / Bilingual</span>
+            </div>
+            <div class="lang-item">
+              <span class="lang-name">English</span>
+              <span class="lang-level">Full Professional</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Download -->
+        <div class="sb-section reveal reveal-delay-2">
+          <p class="sb-label">Download</p>
+          <a href="Jack_Revenue_CV_v2.docx" download class="dl-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV (.docx)
+          </a>
+        </div>
+
+      </aside>
+
+      <!-- ── MAIN CONTENT ─────────────────────────────────────── -->
+      <div class="main-content">
+
+        <!-- Summary -->
+        <div class="cv-section reveal">
+          <p class="cv-section-label">// profile</p>
+          <p class="summary-text">
+            Cloud developer in training at <strong>IT-Högskolan</strong> with
+            <strong>6+ years of IT service management experience</strong> at Capgemini
+            and Tech Mahindra. Brings a strong support foundation — incident management,
+            EMEA-scale user support, CSAT excellence — into an
+            <strong>Azure and .NET development track</strong>. Hands-on with C#, SQL, Git,
+            GitHub, Visual Studio, and Microsoft 365.
+          </p>
+        </div>
+
+        <!-- Experience -->
+        <div class="cv-section reveal">
+          <p class="cv-section-label">// experience</p>
+          <div class="exp-list">
+
+            <div class="exp-item">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-company">Capgemini</div>
+                  <div class="exp-meta">
+                    <span class="exp-role">Senior Desktop Support Analyst</span>
+                    <span class="exp-location">· Gothenburg</span>
+                  </div>
+                </div>
+                <span class="exp-period">Aug 2019 — Aug 2025</span>
+              </div>
+              <ul class="exp-points">
+                <li>Delivered <strong>Line 1.5 / Line 2 IT support</strong> for national sales companies across the EMEA region, resolving hardware, software, and connectivity issues for hundreds of end users.</li>
+                <li>Administered <strong>laptop fleet and Microsoft 365 environment</strong>, maintaining SLA compliance in a high-demand service desk setting.</li>
+                <li>Onboarded and trained new analysts during the Tech Mahindra → Capgemini transition, authoring knowledge-base articles to support continuity.</li>
+                <li>Collaborated with Incident Managers and Knowledge Management teams to <strong>streamline documentation and accelerate ticket resolution</strong>.</li>
+              </ul>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-company">Tech Mahindra</div>
+                  <div class="exp-meta">
+                    <span class="exp-role">Service Desk Analyst</span>
+                    <span class="exp-location">· Budapest</span>
+                  </div>
+                </div>
+                <span class="exp-period">Jun 2017 — Aug 2019</span>
+              </div>
+              <ul class="exp-points">
+                <li>Processed <strong>~53 inbound support calls per day</strong> in a high-volume, multilingual service desk environment.</li>
+                <li>Achieved <strong>100% CSAT in the majority of months</strong>, consistently exceeding team benchmarks.</li>
+                <li>Awarded <strong>Performer of the Year</strong> in recognition of outstanding technical support and customer service results.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="cv-section reveal">
+          <p class="cv-section-label">// education</p>
+          <div class="edu-item">
+            <div class="edu-school">IT-Högskolan</div>
+            <div class="edu-period">Aug 2025 — Jun 2027 (expected)</div>
+            <div class="edu-degree">.NET Developer with Azure Cloud — Higher Vocational Education (YH) · Gothenburg</div>
+            <ul class="edu-bullets">
+              <li>Building full-stack applications in C# and ASP.NET Core with Azure cloud deployment.</li>
+              <li>Coursework covers cloud architecture, databases, DevOps practices, and agile software development.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="cv-section reveal">
+          <p class="cv-section-label">// certifications</p>
+          <div class="cert-grid">
+            <div class="cert-row">
+              <div class="cert-icon-wrap">🛡️</div>
+              <div>
+                <div class="cert-name">IT Security: Defense Against the Digital Dark Arts</div>
+                <div class="cert-issuer">Google / Coursera</div>
+              </div>
+              <span class="cert-badge">Verified</span>
+            </div>
+            <div class="cert-row">
+              <div class="cert-icon-wrap">🖥️</div>
+              <div>
+                <div class="cert-name">Technical Support Fundamentals</div>
+                <div class="cert-issuer">Google / Coursera</div>
+              </div>
+              <span class="cert-badge">Verified</span>
+            </div>
+            <div class="cert-row">
+              <div class="cert-icon-wrap">⚙️</div>
+              <div>
+                <div class="cert-name">System Administration and IT Infrastructure Services</div>
+                <div class="cert-issuer">Google / Coursera</div>
+              </div>
+              <span class="cert-badge">Verified</span>
+            </div>
+            <div class="cert-row">
+              <div class="cert-icon-wrap">💻</div>
+              <div>
+                <div class="cert-name">Programming Foundations: Fundamentals</div>
+                <div class="cert-issuer">Google / Coursera</div>
+              </div>
+              <span class="cert-badge">Verified</span>
+            </div>
+            <div class="cert-row">
+              <div class="cert-icon-wrap">🌐</div>
+              <div>
+                <div class="cert-name">Web Development Foundations: Full-Stack vs Front-End</div>
+                <div class="cert-issuer">Google / Coursera</div>
+              </div>
+              <span class="cert-badge">Verified</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- end main-content -->
+    </div>
+    <!-- end cv-body -->
+
+  </div>
+  </main>
+
+  <!-- ── FOOTER ───────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-logo">Jack Revenue</div>
+    <div class="footer-copy">© 2025 Jack Revenue · Gothenburg, Sweden</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="https://github.com/Jack-iths" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/jackrevenue" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const els = document.querySelectorAll('.reveal');
+    els.forEach(el => el.classList.add('hidden'));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.remove('hidden');
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    els.forEach(el => io.observe(el));
+
+    // Skill bars
+    const barIo = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.skill-fill').forEach(f => f.classList.add('animated'));
+          barIo.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.sidebar').forEach(el => barIo.observe(el));
+  </script>
+</body>
+</html>
