@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jack Revenue — CV & About</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232C4A8A'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='18' font-weight='800' text-anchor='middle' fill='%23F0EEE9'%3EJ%3C/text%3E%3C/svg%3E" />
+  <title>Jack Revenue — CV</title>
   <meta name="description" content="CV and background of Jack Revenue — Junior Azure/.NET Developer based in Gothenburg, Sweden." />
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Jack Revenue — CV" />
+  <meta property="og:description" content="CV of Jack Revenue — Junior Azure/.NET Developer based in Gothenburg, Sweden." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -16,6 +20,7 @@
       --bg2:       #E8E5DF;
       --bg3:       #DDD9D2;
       --border:    rgba(0,0,0,0.09);
+      --hairline:  rgba(0,0,0,0.05);
       --text:      #1C1A17;
       --muted:     #7A766F;
       --accent:    #2C4A8A;
@@ -59,7 +64,7 @@
       height: 56px;
       background: rgba(240,238,233,.92);
       backdrop-filter: blur(16px) saturate(140%);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--hairline);
       animation: navIn .5s cubic-bezier(0.16,1,0.3,1) both;
     }
     @keyframes navIn { from { opacity:0; transform: translateY(-8px); } }
@@ -95,10 +100,10 @@
       display: flex;
       align-items: center;
       color: var(--muted);
-      border-right: 1px solid var(--border);
+      border-right: 1px solid transparent;
       transition: color .16s, background .16s;
     }
-    .nav-links a:first-child { border-left: 1px solid var(--border); }
+    .nav-links a:first-child { border-left: 1px solid transparent; }
     .nav-links a:hover { color: var(--text); background: var(--bg2); }
     .nav-links a.active { color: var(--text); background: var(--bg2); }
     .nav-cta {
@@ -129,7 +134,7 @@
       align-items: end;
       gap: 40px;
       padding-bottom: 40px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--hairline);
       margin-bottom: 64px;
       animation: fadeUp .6s .1s cubic-bezier(0.16,1,0.3,1) both;
     }
@@ -195,23 +200,8 @@
       text-transform: uppercase;
       color: var(--muted);
       padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--hairline);
     }
-
-    /* Skills */
-    .skill-list { display: flex; flex-direction: column; gap: 8px; }
-    .skill-row { display: flex; flex-direction: column; gap: 3px; }
-    .skill-meta { display: flex; justify-content: space-between; font-size: 12px; }
-    .skill-name { font-weight: 500; }
-    .skill-pct { color: var(--muted); }
-    .skill-track { height: 2px; background: var(--bg3); border-radius: 1px; overflow: hidden; }
-    .skill-fill {
-      height: 100%;
-      background: var(--accent);
-      width: 0;
-      transition: width 1.1s cubic-bezier(0.16,1,0.3,1);
-    }
-    .skill-fill.animated { width: var(--w); }
 
     /* Tech pills */
     .pill-wrap { display: flex; flex-wrap: wrap; gap: 5px; }
@@ -219,7 +209,7 @@
       font-size: 11px;
       font-weight: 500;
       padding: 3px 8px;
-      border: 1px solid var(--border);
+      border: 1px solid transparent;
       border-radius: 2px;
       color: var(--muted);
       background: var(--bg2);
@@ -263,7 +253,7 @@
       color: var(--accent);
       margin-bottom: 24px;
       padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--hairline);
     }
 
     /* Summary */
@@ -356,7 +346,7 @@
       gap: 14px;
       padding: 14px 16px;
       background: var(--bg2);
-      border: 1px solid var(--border);
+      border: 1px solid transparent;
       border-radius: 2px;
       transition: border-color .16s;
     }
@@ -396,7 +386,7 @@
 
     /* ── Footer ──────────────────────────────────────────────── */
     footer {
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--hairline);
       padding: 32px 40px;
       display: flex;
       align-items: center;
@@ -434,7 +424,7 @@
     <div class="nav-links">
       <a href="index.html#projects">Projects</a>
       <a href="index.html#skills">Skills</a>
-      <a href="about.html" class="active">About</a>
+      <a href="about.html" class="active">CV</a>
     </div>
     <a href="index.html#contact" class="nav-cta">Contact</a>
   </nav>
@@ -458,9 +448,9 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           linkedin.com/in/jackrevenue
         </a>
-        <a href="https://github.com/Jack-iths" target="_blank" rel="noopener" class="hc-item">
+        <a href="https://github.com/JackBigMac" target="_blank" rel="noopener" class="hc-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          github.com/Jack-iths
+          github.com/JackBigMac
         </a>
         <span class="hc-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -475,49 +465,44 @@
       <!-- ── SIDEBAR ──────────────────────────────────────────── -->
       <aside class="sidebar">
 
-        <!-- Core skills -->
+        <!-- Skills -->
         <div class="sb-section reveal">
-          <p class="sb-label">Core Skills</p>
-          <div class="skill-list">
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">C# / .NET</span><span class="skill-pct">85%</span></div>
-              <div class="skill-track"><div class="skill-fill" style="--w:85%"></div></div>
-            </div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">ASP.NET Core</span><span class="skill-pct">80%</span></div>
-              <div class="skill-track"><div class="skill-fill" style="--w:80%"></div></div>
-            </div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">SQL / SQL Server</span><span class="skill-pct">80%</span></div>
-              <div class="skill-track"><div class="skill-fill" style="--w:80%"></div></div>
-            </div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">Microsoft Azure</span><span class="skill-pct">72%</span></div>
-              <div class="skill-track"><div class="skill-fill" style="--w:72%"></div></div>
-            </div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">HTML / CSS / JS</span><span class="skill-pct">74%</span></div>
-              <div class="skill-track"><div class="skill-fill" style="--w:74%"></div></div>
-            </div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">Git / GitHub</span><span class="skill-pct">70%</span></div>
-              <div class="skill-track"><div class="skill-fill" style="--w:70%"></div></div>
-            </div>
+          <p class="sb-label">Backend &amp; Data</p>
+          <div class="pill-wrap">
+            <span class="pill">C#</span>
+            <span class="pill">.NET</span>
+            <span class="pill">ASP.NET Core</span>
+            <span class="pill">Entity Framework</span>
+            <span class="pill">REST APIs</span>
+            <span class="pill">SQL Server</span>
+            <span class="pill">SQLite</span>
           </div>
         </div>
 
-        <!-- Tools -->
         <div class="sb-section reveal reveal-delay-1">
-          <p class="sb-label">Tools & Platforms</p>
+          <p class="sb-label">Cloud &amp; DevOps</p>
           <div class="pill-wrap">
+            <span class="pill">Azure</span>
+            <span class="pill">App Service</span>
+            <span class="pill">Container Apps</span>
+            <span class="pill">Bicep</span>
+            <span class="pill">CI/CD</span>
+            <span class="pill">Docker</span>
+            <span class="pill">Git &amp; GitHub</span>
+          </div>
+        </div>
+
+        <div class="sb-section reveal reveal-delay-1">
+          <p class="sb-label">Frontend, Scripting &amp; Tools</p>
+          <div class="pill-wrap">
+            <span class="pill">HTML</span>
+            <span class="pill">CSS</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">Python</span>
+            <span class="pill">PHP</span>
             <span class="pill">Visual Studio</span>
             <span class="pill">VS Code</span>
-            <span class="pill">Azure Portal</span>
-            <span class="pill">GitHub</span>
             <span class="pill">Microsoft 365</span>
-            <span class="pill">Entity Framework</span>
-            <span class="pill">Docker</span>
-            <span class="pill">ITSM</span>
           </div>
         </div>
 
@@ -571,6 +556,22 @@
             <div class="exp-item">
               <div class="exp-header">
                 <div>
+                  <div class="exp-company">Företagsvärlden</div>
+                  <div class="exp-meta">
+                    <span class="exp-role">LIA Internship · .NET &amp; Azure</span>
+                  </div>
+                </div>
+                <span class="exp-period">2026 — Present</span>
+              </div>
+              <ul class="exp-points">
+                <li>Building a <strong>CI/CD pipeline</strong> that builds and deploys a .NET 9 web application to <strong>Azure App Service</strong>.</li>
+                <li>Worked around the deployment-slot limitations of the F1 Free plan.</li>
+              </ul>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-header">
+                <div>
                   <div class="exp-company">Capgemini</div>
                   <div class="exp-meta">
                     <span class="exp-role">Senior Desktop Support Analyst</span>
@@ -606,6 +607,17 @@
             </div>
 
           </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="cv-section reveal">
+          <p class="cv-section-label">// projects</p>
+          <p class="summary-text">
+            Pipelines, tooling and self-hosted apps built alongside my studies. See the
+            <a href="index.html#projects" style="color:var(--accent); text-decoration:underline; text-underline-offset:3px;">selected projects</a>
+            or browse my
+            <a href="https://github.com/JackBigMac" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:underline; text-underline-offset:3px;">GitHub</a>.
+          </p>
         </div>
 
         <!-- Education -->
@@ -680,15 +692,16 @@
   <!-- ── FOOTER ───────────────────────────────────────────────── -->
   <footer>
     <div class="footer-logo">Jack Revenue</div>
-    <div class="footer-copy">© 2025 Jack Revenue · Gothenburg, Sweden</div>
+    <div class="footer-copy">© <span data-year>2026</span> Jack Revenue · Gothenburg, Sweden</div>
     <div class="footer-links">
       <a href="index.html">Home</a>
-      <a href="https://github.com/Jack-iths" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/JackBigMac" target="_blank" rel="noopener">GitHub</a>
       <a href="https://linkedin.com/in/jackrevenue" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </footer>
 
   <script>
+    document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
     // Scroll reveal
     const els = document.querySelectorAll('.reveal');
     els.forEach(el => el.classList.add('hidden'));
@@ -702,17 +715,6 @@
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
     els.forEach(el => io.observe(el));
-
-    // Skill bars
-    const barIo = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll('.skill-fill').forEach(f => f.classList.add('animated'));
-          barIo.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    document.querySelectorAll('.sidebar').forEach(el => barIo.observe(el));
   </script>
 </body>
 </html>
